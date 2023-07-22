@@ -4,31 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>JavaScript32 (MultiArray(10),Events(13))</title>
+    <title>Form(14)-input type="submit")</title>
 
 	<script type="text/javascript">
-		var cntEl = 0;
-		function cnt(el) {
-			cntEl++;
-			el.innerHTML = "На этот текст было наведено " + cntEl + " раз"; // innerHTML
-		}
+        function valid(form) {
+            var 
+                err = '',
+                name = form.name.value.trim(),
+                password = form.password.value.trim(),
+                rePassword = form.rePassword.value.trim(),
+                state = form.state.value.trim();
+            
+            if(name == '') {
+                err += 'Не ввели имя! ';
+            }
+            if(password == '') {
+                err += 'Не ввели пароль! ';
+            }
+            if(rePassword == '') {
+                err += 'Не повторили пароль! ';
+            }
+            if(password !== rePassword) {
+                err += 'Пароли не совпадают! ';
+            }
+            if(state == '') {
+                err += 'Обределите свой пол:) ';
+            }
+
+            if(err) {
+                alert(err);
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
 	</script>
 </head>
-<body onload="alert('Страница загружена')">
-    <span onmouseover="cnt(this)">На этот текст было наведено 0 раз</span>
-
-    <script type="text/javascript">
-        var arr_1 = new Array();
-        var arr_2 = new Array();
-        var arr_3 = new Array();
-        
-        for(var i = 0; i < 5; i++) arr_1[i] = i;
-        for(var i = 0; i < 10; i++) arr_2[i] = i;
-        for(var i = 0; i < 15; i++) arr_3[i] = i;
-
-        var arr = new Array(arr_1, arr_2, arr_3);
-
-        document.write("<br>" + arr[0][arr_1.length-1]);
-    </script>
+<body>
+    <form action="" method="post" name="test" onsubmit="valid(this)">
+        <label for="name">Имя:</label>
+        <input type="text" name="name" id="name" placeholder="Имя"><br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" id="password" placeholder="Введите пароль"><br><br>
+        <label for="rePassword">Повторите пароль:</label>
+        <input type="password" name="rePassword" id="rePassword" placeholder="Введите пароль"><br><br>
+        <span>Пол:</span>
+        <input type="radio" name="state" id="male" value="Мужской"><label for="male">Мужской</label>
+        <input type="radio" name="state" id="female" value="Женский"><label for="female">Женский</label><br><br>
+        <input type="submit" name="submit" value="Готово">
+    </form>
 </body>
 </html>
