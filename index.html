@@ -2,59 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Form(14)-email(Regular Expressions))</title>
-
-	<script type="text/javascript">
-        function valid(form) {
-            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-            var 
-                err = '',
-                name = form.name.value.trim(),
-                email = form.email.value.trim(),
-                password = form.password.value.trim(),
-                rePassword = form.rePassword.value.trim(),
-                state = form.state.value.trim();
-            if(name == '')
-                err = 'Введите имя! ';
-            else if(email == '')
-                err = 'Введите email! ';
-            else if(reg.test(email) == false)
-                err = 'Введите корректный email! ';
-            else if(password == '')
-                err = 'Введите пароль! ';
-            else if(password == '')
-                err = 'Введите пароль! ';
-            else if(rePassword == '')
-                err = 'Повторите пароль! ';
-            else if(password != rePassword)
-                err = 'Пароли не совпадают! ';
-            else if(state == '')
-                err = 'Обределите свой пол :) ';
-            if(err)
-                alert(err);
-            else
-                /*window.location = 'https://github.com/bbird5063/dudar_lessons/blob/JavaScript32/index.html';*/
-                /* или */
-                location.reload();
-        }
-	</script>
+    <title>Form(14)-timer(setInterval)</title>
 </head>
 <body>
-    <form action="" method="post" name="test" id="form">
-        <label for="name">Имя:</label>
-        <input type="text" name="name" id="name" placeholder="Имя"><br><br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Email"><br><br>
-        <label for="password">Пароль:</label>
-        <input type="password" name="password" id="password" placeholder="Введите пароль"><br><br>
-        <label for="rePassword">Повторите пароль:</label>
-        <input type="password" name="rePassword" id="rePassword" placeholder="Введите пароль"><br><br>
-        <span>Пол:</span>
-        <input type="radio" name="state" id="male" value="Мужской"><label for="male">Мужской</label>
-        <input type="radio" name="state" id="female" value="Женский"><label for="female">Женский</label><br><br>
-        <input type="button" onclick="valid(document.getElementById('form'))" name="submit" value="Готово">
-    </form>
+	<script type="text/javascript">
+        var id = setInterval("myFunc_1()", 1000);
+        var counter = 0;
+        function myFunc_1() {
+            counter++;
+            alert(counter + ' секунд прошло'); // у Дударя работает без нажатия кнопки
+            if(counter == 3) clearInterval(id);
+        }
+    </script>
 </body>
 </html>
