@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Form(14)-next page")</title>
+    <title>Form(14)-next page(ok-amend))</title>
 
 	<script type="text/javascript">
         function valid(form) {
@@ -15,15 +15,15 @@
                 rePassword = form.rePassword.value.trim(),
                 state = form.state.value.trim();
             if(name == '')
-                err = 'Не ввели имя! ';
+                err = 'Введите имя! ';
             else if(password == '')
-                err = 'Не ввели пароль! ';
+                err = 'Введите пароль! ';
             else if(rePassword == '')
-                err = 'Не повторили пароль! ';
+                err = 'Повторите пароль! ';
             else if(password != rePassword)
                 err = 'Пароли не совпадают! ';
             else if(state == '')
-                err = 'Обределите свой пол:) ';
+                err = 'Обределите свой пол :) ';
             if(err)
                 alert(err);
             else
