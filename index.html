@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Form(14)-timer(setInterval)</title>
-</head>
-<body>
+    <title>Form(14)-timer(setTimeout)</title>
 	<script type="text/javascript">
-        var id = setInterval("myFunc_1()", 1000);
         var counter = 0;
-        function myFunc_1() {
+        function timer() {
             counter++;
-            alert(counter + ' секунд прошло'); // у Дударя работает без нажатия кнопки
-            if(counter == 3) clearInterval(id);
+            document.getElementById("count").innerText = counter;
+            setTimeout("timer()", 1000);
         }
     </script>
+</head>
+<body onload="timer()">
+    Секунд прошло: <span id="count"></span>
 </body>
 </html>
