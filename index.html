@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Form(14)-input type="submit")</title>
+    <title>Form(14)-input type="button")</title>
 
 	<script type="text/javascript">
         function valid(form) {
@@ -14,35 +14,24 @@
                 password = form.password.value.trim(),
                 rePassword = form.rePassword.value.trim(),
                 state = form.state.value.trim();
-            
-            if(name == '') {
-                err += 'Не ввели имя! ';
-            }
-            if(password == '') {
-                err += 'Не ввели пароль! ';
-            }
-            if(rePassword == '') {
-                err += 'Не повторили пароль! ';
-            }
-            if(password !== rePassword) {
-                err += 'Пароли не совпадают! ';
-            }
-            if(state == '') {
-                err += 'Обределите свой пол:) ';
-            }
-
+            if(name == '')
+                err = 'Не ввели имя! ';
+            else if(password == '')
+                err = 'Не ввели пароль! ';
+            else if(rePassword == '')
+                err = 'Не повторили пароль! ';
+            else if(password != rePassword)
+                err = 'Пароли не совпадают! ';
+            else if(state == '')
+                err = 'Обределите свой пол:) ';
             if(err) {
                 alert(err);
-                return false;
-            }
-            else {
-                return true;
             }
         }
 	</script>
 </head>
 <body>
-    <form action="" method="post" name="test" onsubmit="valid(this)">
+    <form action="" method="post" name="test" id="form">
         <label for="name">Имя:</label>
         <input type="text" name="name" id="name" placeholder="Имя"><br><br>
         <label for="password">Пароль:</label>
@@ -52,7 +41,7 @@
         <span>Пол:</span>
         <input type="radio" name="state" id="male" value="Мужской"><label for="male">Мужской</label>
         <input type="radio" name="state" id="female" value="Женский"><label for="female">Женский</label><br><br>
-        <input type="submit" name="submit" value="Готово">
+        <input type="button" onclick="valid(document.getElementById('form'))" name="submit" value="Готово">
     </form>
 </body>
 </html>
