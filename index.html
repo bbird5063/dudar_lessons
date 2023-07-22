@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гоша Дударь</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>JavaScript32 (MultiArray(10),Events(13))</title>
+
+	<script type="text/javascript">
+		var cntEl = 0;
+		function cnt(el) {
+			cntEl++;
+			el.innerHTML = "На этот текст было наведено " + cntEl + " раз"; // innerHTML
+		}
+	</script>
 </head>
-<body>
-    
+<body onload="alert('Страница загружена')">
+    <span onmouseover="cnt(this)">На этот текст было наведено 0 раз</span>
+
+    <script type="text/javascript">
+        var arr_1 = new Array();
+        var arr_2 = new Array();
+        var arr_3 = new Array();
+        
+        for(var i = 0; i < 5; i++) arr_1[i] = i;
+        for(var i = 0; i < 10; i++) arr_2[i] = i;
+        for(var i = 0; i < 15; i++) arr_3[i] = i;
+
+        var arr = new Array(arr_1, arr_2, arr_3);
+
+        document.write("<br>" + arr[0][arr_1.length-1]);
+    </script>
 </body>
 </html>
