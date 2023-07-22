@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Form(14)-next page(reload))</title>
+    <title>Form(14)-email(Regular Expressions))</title>
 
 	<script type="text/javascript">
         function valid(form) {
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
             var 
                 err = '',
                 name = form.name.value.trim(),
+                email = form.email.value.trim(),
                 password = form.password.value.trim(),
                 rePassword = form.rePassword.value.trim(),
                 state = form.state.value.trim();
             if(name == '')
                 err = 'Введите имя! ';
+            else if(email == '')
+                err = 'Введите email! ';
+            else if(reg.test(email) == false)
+                err = 'Введите корректный email! ';
+            else if(password == '')
+                err = 'Введите пароль! ';
             else if(password == '')
                 err = 'Введите пароль! ';
             else if(rePassword == '')
@@ -37,6 +45,8 @@
     <form action="" method="post" name="test" id="form">
         <label for="name">Имя:</label>
         <input type="text" name="name" id="name" placeholder="Имя"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Email"><br><br>
         <label for="password">Пароль:</label>
         <input type="password" name="password" id="password" placeholder="Введите пароль"><br><br>
         <label for="rePassword">Повторите пароль:</label>
